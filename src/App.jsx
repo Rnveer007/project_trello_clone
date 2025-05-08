@@ -9,7 +9,7 @@ function App() {
   const [activeListId, setActiveListId] = useState(null);
 
   const handleAddTask = (listId) => {
-    dispatch(addTask({ listId }));
+    dispatch(addTask({ listId })); 
     setActiveListId(null);
   };
 

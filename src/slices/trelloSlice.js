@@ -18,7 +18,6 @@ const trelloSlice = createSlice({
             const todoList = state.lists.find((list) => list.id === listId);
             const taskText = state.input[listId];
 
-
             if (todoList) {
                 todoList.tasks.push({
                     task: taskText,

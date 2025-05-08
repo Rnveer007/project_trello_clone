@@ -29,7 +29,6 @@ export const initData = [
     id: 4,
     name: "Add More",
     tasks: [
-
     ],
   },
 ];
