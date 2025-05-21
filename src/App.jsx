@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { IoMdAdd } from "react-icons/io";
 import { setInput, addTask } from './slices/trelloSlice';
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 import { useState } from 'react';
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
   const [activeListId, setActiveListId] = useState(null);
 
   const handleAddTask = (listId) => {
-    dispatch(addTask({ listId })); 
+    dispatch(addTask({ listId }));
     setActiveListId(null);
   };
 
@@ -18,12 +20,22 @@ function App() {
       <h1 className='text-center py-10 font-bold text-2xl'>Trello Clone</h1>
       <div className='flex justify-between flex-wrap px-10'>
         {lists.map((list) => (
-          <div key={list.id} className='taskList border p-4 w-64 min-h-[200px] flex-grow-0 '  style={{ height: 'auto' }}>
+          <div key={list.id}
+            className='taskList border p-4 w-72 min-h-[200px] flex-grow-0 '
+            style={{ height: 'auto' }}>
             <h1 className='text-center font-semibold mb-2'>{list.name}</h1>
 
             <ul>
               {list.tasks.map(task => (
-                <li key={task.id}>{task.task}</li>
+                <li key={task.id}
+                  className='list group flex items-center cursor-pointer'>
+                  {task.task}
+                  <span
+                    className='hidden group-hover:flex gap-2'>
+                    {<MdDelete />}
+                    {<MdEdit />}
+                  </span>
+                </li>
               ))}
             </ul>
 

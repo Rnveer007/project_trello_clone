@@ -25,6 +25,9 @@ const trelloSlice = createSlice({
                 });
             }
             state.input[listId] = ""
+        },
+        deleteTask: function (state, action) {
+
         }
     }
 })
